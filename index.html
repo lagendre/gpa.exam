@@ -135,7 +135,7 @@
 			
 			var line = data.split('\r');
 			
-			$(".nav").find(".active").attr("title",line[0]);	
+			$(".nav").find(".active").children().attr("title",line[0]);	
 				
 			for (var i=0;i<line.length;i++){			
 			
