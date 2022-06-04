@@ -11,9 +11,13 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <style>
         input[type='radio'] { transform: scale(2); }
-		/*.row {
-			padding-top: 60px;
-		}*/
+	
+	.navbar-brand {
+		width: 300px;
+		overflow:hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
         </style>
     </head>
     <body>
@@ -128,7 +132,9 @@
         })
 		
 		function selectquiz(txt){
-		
+			
+			$('.navbar-brand').text( txt );
+			
 			qa = [];
 			
 			$.get(txt+'題庫.txt', function(data) {
@@ -256,6 +262,7 @@
           }
           $('#qa-answer').html(answers);
           $('input.qa-options').change(function() {
+	    window.scrollTo(0, document.body.scrollHeight);  
             var selected = $(this).val();
             if(selected == qa[currentIndex].answer) {
               $('#qa-result').html("你答對了！");
