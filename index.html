@@ -265,14 +265,15 @@
             answers += '<label class="radio-inline"><input name="answer" class="qa-options" type="radio" value="' + k + '" />' + ' &nbsp; ' + qa[currentIndex].options[k] + '</label><br />';
           }
           $('#qa-answer').html(answers);
-          $('input.qa-options').change(function() {
-	    window.scrollTo(0, document.body.scrollHeight);  
+		
+          $('input.qa-options').change(function() {	      
             var selected = $(this).val();
             if(selected == qa[currentIndex].answer) {
               $('#qa-result').html("你答對了！");
             } else {
               $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
             }
+		window.scrollTo(0, document.body.scrollHeight);
           });
           $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題');
         }
