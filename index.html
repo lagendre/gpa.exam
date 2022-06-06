@@ -86,13 +86,16 @@
                     <div class="col-md-8 col-sm-12 col-xs-12">
                         <div class="btn-group btn-group-justified">
                             <a class="btn btn-primary btn-lg qa-previous" href="#">
-                                上一題
+                                上題
                             </a>
                             <a class="btn btn-primary btn-lg qa-jump" href="#">
                                 跳題
                             </a>
+			<a class="btn btn-primary btn-lg qa-random" href="#">
+                                隨機
+                            </a>
                             <a class="btn btn-primary btn-lg qa-next" href="#">
-                                下一題
+                                下題
                             </a>
                         </div>
                         <div class="col-md-12" id="qa-status"></div>
@@ -130,22 +133,24 @@
             if(currentIndex < 0) {
               currentIndex = total - 1;
             }
-            showQuiz();
-            return false;
+            showQuiz();       
           });
           $('.qa-next').click(function() {
             currentIndex += 1;
             if(currentIndex >= total) {
               currentIndex = 0;
             }
-            showQuiz();
-            return false;
+            showQuiz();            
           });
           $('.qa-jump').click(function() {
             currentIndex = window.prompt('輸入 1-' + total + ' 數字');
             currentIndex = parseInt(currentIndex) - 1;
+            showQuiz();            
+          });
+		
+	 $('.qa-random').click(function() {
+	    currentIndex = Math.floor(Math.random() * qa.length);
             showQuiz();
-            return false;
           });
 	
         })
