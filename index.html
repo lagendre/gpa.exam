@@ -8,8 +8,9 @@
         <meta property="og:description" content="以工程會產出的題庫為基礎，提供線上題庫練習">
         <meta property="og:type" content="website">
      	<meta name="theme-color" content="#6f42c1">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <style>
         input[type='radio'] { transform: scale(2); }
 	
@@ -24,16 +25,13 @@
 			text-align:justify;
 	}
 	
-	.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+	.btn-primary {
     		background-color: #6f42c1 !important;
 		border-color:gray !important;
 	}
 	
-	.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
-		background-color:#6f42c1 !important;
-	}
 	.nav>li>a {
-   	 	padding: 12px 10px !important;
+   	 	padding: 10px 10px !important;
     		font-size: 16px !important;
 	}
         </style>
@@ -41,33 +39,28 @@
     <body>
 		
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #6f42c1;">
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" style="background-color: #6f42c1;" >
       <div class="container-fluid">
-        <div class="navbar-header">
-		<a class="navbar-brand visible-xs" href="#" style="color: white;">採購法題庫</a>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+         <a class="navbar-brand d-md-block d-lg-none" href="#">採購法題庫</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>       
         <div id="navbar" class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
-            	<li><a href="#" data-toggle="tooltip" title="">政府採購全生命週期概論</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">政府採購法之總則、招標及決標</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">政府採購法之履約管理及驗收</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">政府採購法之罰則及附則</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">政府採購法之爭議處理</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">底價及價格分析</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">投標須知及招標文件製作</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">採購契約</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">最有利標及評選優勝廠商</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">電子採購實務</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">工程及技術服務採購作業</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">財物及勞務採購作業</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">錯誤採購態樣</a></li>
-		<li><a href="#" data-toggle="tooltip" title="">道德規範及違法處置</a></li>
+        <li><a class="nav-link" href="#" >政府採購全生命週期概論</a></li>
+		<li><a class="nav-link" href="#" >政府採購法之總則、招標及決標</a></li>
+		<li><a class="nav-link" href="#" >政府採購法之履約管理及驗收</a></li>
+		<li><a class="nav-link" href="#" >政府採購法之罰則及附則</a></li>
+		<li><a class="nav-link" href="#" >政府採購法之爭議處理</a></li>
+		<li><a class="nav-link" href="#" >底價及價格分析</a></li>
+		<li><a class="nav-link" href="#" >投標須知及招標文件製作</a></li>
+		<li><a class="nav-link" href="#" >採購契約</a></li>
+		<li><a class="nav-link" href="#" >最有利標及評選優勝廠商</a></li>
+		<li><a class="nav-link" href="#" >電子採購實務</a></li>
+		<li><a class="nav-link" href="#" >工程及技術服務採購作業</a></li>
+		<li><a class="nav-link" href="#" >財物及勞務採購作業</a></li>
+		<li><a class="nav-link" href="#" >錯誤採購態樣</a></li>
+		<li><a class="nav-link" href="#" >道德規範及違法處置</a></li>
           </ul>
 
         </div>
@@ -75,7 +68,6 @@
     </nav>
 
 
-		
 		  <div class="container">
             <div class="row">
                 <p class="hidden-sm hidden-xs">&nbsp;</p>
@@ -84,19 +76,19 @@
                 <h1 id="qa-result" class="col-md-12" style="color: red;"></h1>
                 <div id="detail" class="col-md-12">
                     <div class="col-md-8 col-sm-12 col-xs-12">
-                        <div class="btn-group btn-group-justified">
-                            <a class="btn btn-primary btn-lg qa-previous" href="#">
-                                上題
-                            </a>
-                            <a class="btn btn-primary btn-lg qa-jump" href="#">
+                        <div class="d-flex btn-group btn-group-lg" role="group">
+                            <button type="button" class="btn btn-primary  qa-previous" >
+                                上一題
+                            </button>
+                            <button type="button" class="btn btn-primary  qa-jump" >
                                 跳題
-                            </a>
-			<a class="btn btn-primary btn-lg qa-random" href="#">
+                            </button>
+							<button type="button"class="btn btn-primary  qa-random" >
                                 隨機
-                            </a>
-                            <a class="btn btn-primary btn-lg qa-next" href="#">
-                                下題
-                            </a>
+                            </button>
+                            <button type="button" class="btn btn-primary qa-next">
+                                下一題
+                            </button>
                         </div>
                         <div class="col-md-12" id="qa-status"></div>
                     </div>
@@ -104,25 +96,25 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <a href="https://github.com/lagendre/gpa.exam" target="_blank">網站原始碼</a> |
+                <a href="#" target="_blank" id="ori-pdf">原始題庫</a> |
                 資料來源：<a href="https://web.pcc.gov.tw/psms/plrtqdm/questionPublic/indexReadQuestion" target="_blank">行政院工程會題庫</a>
             </div>
         </div>
         
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+       
         <script>
         var currentIndex = 0, qa = [], total = 0;
         $(function() {
 		
-		//selectquiz( $(this).text() );
-		$(".nav li:nth-child("+(Math.floor(Math.random() * $('.nav li').length )+1)+")").addClass("active");
+		
+		$(".nav li:nth-child("+(Math.floor(Math.random() * $('.nav li').length )+1)+") a").addClass("active");
 		
 		selectquiz( $(".nav").find(".active").text() );
 		
 		$(".nav a").on("click", function(){
 		
 			$(".nav").find(".active").removeClass("active");
-			$(this).parent().addClass("active");
+			$(this).addClass("active");
 			
 			selectquiz( $(this).text() );
 		});
@@ -157,106 +149,103 @@
 		
 		function selectquiz(txt){
 			
+			$("a#ori-pdf").attr("href", txt +'題庫.pdf' );
+			$("a#ori-pdf").text( txt +'題庫' );
+			
 			$('.navbar-brand').text( txt );
 			
 			qa = [];
 			
 			$.get(txt+'題庫.txt', function(data) {
 			
-			var line = data.split('\r');
-			
-			$(".nav").find(".active").children().attr("title",line[0]);	
+			let line = data.split('\r');
+			let line_split =[];
+			let section='';
 				
-			for (var i=0;i<line.length;i++){			
-			
-			switch ( line[i].replace(/\n/g, '') ) {
-				case '選擇題':
-					if (line[i+4]==='依據法源'){
-	
-						i=i+6;
-
-						do {
-							qa.push({
-							"quiz": line[i-1]+'.'+line[i+1].split(' ')[0],
-							"options": {
-							"1": line[i+1].split(' ')[1],
-							"2": line[i+1].split(' ')[2],
-							"3": line[i+1].split(' ')[3],
-							"4": line[i+1].split(' ')[4]
-							},
-							"answer":line[i],
-							"ref": line[i+2]
-							});
-							
-							if (!isNumeric(line[i+4]))
-								break;
-							i += 4;
-
-						} while (i < line.length);
-
-					}
-					else{
+				
+			for (var i=0; i<line.length; i++){			
+				if (line[i].replace(/\n/g, '') ==='選擇題')
+					section = '選擇題';
+				
+				if (line[i].replace(/\n/g, '') ==='是非題')
+					section = '是非題';
 					
-						i=i+5;
+				if (line[i].replace(/\n/g, '') ==='依據法源'){
+					if (section ==='選擇題')
+						section = '選擇題&依據法源';
+					else
+						section = '是非題&依據法源';
+				}
+						
+			switch ( section ) {
+				
+				case '選擇題':
+						if( !isNaN(parseInt(line[i])) ){			
 
-						do {
+							line_split = line[i+2].split('(');
 							qa.push({
-							"quiz": line[i-1]+'.'+line[i+1].split(' ')[0],
+							"quiz": line[i]+'.'+ line_split[0],
 							"options": {
-							"1": line[i+1].split(' ')[1],
-							"2": line[i+1].split(' ')[2],
-							"3": line[i+1].split(' ')[3],
-							"4": line[i+1].split(' ')[4]
+							"1": '('+line_split[1],
+							"2": '('+line_split[2],
+							"3": '('+line_split[3],
+							"4": '('+line_split[4]
 							},
-							"answer":line[i],
+							"answer":line[i+1],
 							"ref":""
 							});
-							
-							if (!isNumeric(line[i+3]))
-								break;
+						  i += 2;			
+						}
+					break;
+				case '選擇題&依據法源':
+					if( !isNaN(parseInt(line[i])) ){
+						
+							line_split = line[i+2].split('(');
+							qa.push({
+							"quiz": line[i]+'.'+line_split[0],
+							"options": {
+							"1": '('+line_split[1],
+							"2": '('+line_split[2],
+							"3": '('+line_split[3],
+							"4": '('+line_split[4]
+							},
+							"answer":line[i+1],
+							"ref": line[i+3]
+							});
 								
 							i += 3;
-
-						} while (i < line.length);
 					}
-					break;
-				case '是非題':
-					if (line[i+4]==='依據法源'){
-						i=i+6;
-						do {					
+					break;	
+				case '是非題':		
+						if( !isNaN(parseInt(line[i])) ){					
 							qa.push({
-							"quiz":line[i-1]+'.'+ line[i+1],
+							"quiz": line[i]+'.'+line[i+2],
 							"options": {
 							"O": "O",
 							"X": "X"
 							},
-							"answer":line[i],
-							"ref": line[i+2]
-							});
-						
-							if (line[i+4]!=="O"&&line[i+4]!=="X")
-								break;
-							i += 4;
-						} while (i < line.length);
-					}
-					else{
-						i=i+5;
-						do {					
-							qa.push({
-							"quiz": line[i-1]+'.'+line[i+1],
-							"options": {
-							"O": "O",
-							"X": "X"
-							},
-							"answer":line[i],
+							"answer":line[i+1],
 							"ref": ""
 							});
 						
-							if (line[i+3]!=="O"&&line[i+3]!=="X")
-								break;
-							i += 3;
-						} while (i < line.length);
+							i += 2;
+						}
+					break;
+				case '是非題&依據法源':
+					if( !isNaN(parseInt(line[i])) ){										
+							qa.push({
+							"quiz":line[i]+'.'+ line[i+2],
+							"options": {
+							"O": "O",
+							"X": "X"
+							},
+							"answer":line[i+1],
+							"ref": line[i+3]
+							});
+						
+							i += 3;				
 					}
+					break;	
 				default:
 					//console.log(`nothing here:` + line[i] );
 			}//end of switch
@@ -298,11 +287,7 @@
           });
           $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題');
         }
-		function isNumeric(str) {
-		if (typeof str != "string") return false // we only process strings!  
-		return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
-		}
+
         </script>
     </body>
 </html>
