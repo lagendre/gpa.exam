@@ -101,7 +101,7 @@
         
        
         <script>
-        var currentIndex = 0, qa = [], total = 0;
+        var currentIndex = 0, qa = [], total = 0, sel_cnt=0;
         $(function() {
 		
 		
@@ -166,14 +166,18 @@
 				if (line[i].replace(/\n/g, '') ==='選擇題')
 					section = '選擇題';
 				
-				if (line[i].replace(/\n/g, '') ==='是非題')
+				if (line[i].replace(/\n/g, '') ==='是非題'){
 					section = '是非題';
+					sel_cnt = qa.length;
+					}
 					
 				if (line[i].replace(/\n/g, '') ==='依據法源'){
 					if (section ==='選擇題')
 						section = '選擇題&依據法源';
-					else
+					else{
 						section = '是非題&依據法源';
+						sel_cnt = qa.length;
+					}
 				}
 						
 			switch ( section ) {
@@ -285,7 +289,7 @@
             }
 		window.scrollTo(0, document.body.scrollHeight);
           });
-          $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題');
+          $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
         }
 
         </script>
