@@ -92,7 +92,7 @@
             <div class="row">          
                 <h1 id="qa-quiz" class="col-md-12"></h1>
                 <div id="qa-answer" class="col-md-12" style="font-size: 20pt;"></div>
-                <h1 id="qa-result" class="col-md-12" style="color: red;"></h1>
+                <h1 id="qa-result" class="col-md-12" ></h1>
                 <div id="detail" class="col-md-12">
                     <div class="col-md-10 col-sm-12 col-xs-12">
                         <div class="d-flex btn-group btn-group-lg" role="group">
@@ -352,10 +352,14 @@
           $('input.qa-options').change(function() {	      
             var selected = $(this).val();
             if(selected == qa[currentIndex].answer) {
-              $('#qa-result').html("你答對了！");
-			  frac_top++;
-			  frac_bottom++;
+				$('#qa-result').css({'color':'green'});
+				
+				$('#qa-result').html("你答對了！");
+				
+				frac_top++;frac_bottom++;
             } else {
+				$('#qa-result').css({'color':'red'});
+				
               $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
 			  frac_bottom++;
 			  saveIndexedDB(qa[currentIndex]);
