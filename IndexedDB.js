@@ -1,4 +1,3 @@
-// quite untested, adapted from BigstickCarpet's gist, attempt to make it simpler to use
 
 function openIndexedDB () {
   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
@@ -72,22 +71,7 @@ function loadIndexedDB (filename, callback, filesearch) {
   return true;
 }
 
-function example () {
-  var fileindex = ["name.last", "name.first"];
-  saveIndexedDB(12345, {name: {first: "John", last: "Doe"}, age: 42});
-  saveIndexedDB(67890, {name: {first: "Bob", last: "Smith"}, age: 35}, fileindex);
 
-  loadIndexedDB(12345, callbackJohn);
-  findIndexedDB(["Smith", "Bob"], callbackBob);
-}
-
-function callbackJohn (filedata) {
-  console.log(filedata.name.first);
-}
-
-function callbackBob (filedata) {
-  console.log(filedata.name.first);
-}
 
 function getAllquiz(callback) {
 	
@@ -103,16 +87,18 @@ function getAllquiz(callback) {
 			let cursor = evt.target.result;
 			
 			 if (cursor) {
-                let quiz = cursor.value;
-					
-					qa.push(quiz);
+               			let quiz = cursor.value;	
 				
-					if (Object.keys(quiz.options).length==4)
-						sel_cnt++;
-                // continue next record
-                cursor.continue();
-            }
-			callback( qa,sel_cnt);
+				 qa.push(quiz);
+				
+				if (Object.keys(quiz.options).length==4)
+					sel_cnt++;
+                		// continue next record
+               		 	cursor.continue();
+            		}
+			else{
+				callback( qa,sel_cnt);
+			}
 		};
 
 		db.tx.oncomplete = function() {
