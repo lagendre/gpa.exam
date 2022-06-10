@@ -92,7 +92,7 @@
                 <div id="qa-answer" class="col-md-12" style="font-size: 20pt;"></div>
                 <h1 id="qa-result" class="col-md-12" style="color: red;"></h1>
                 <div id="detail" class="col-md-12">
-                    <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="col-md-10 col-sm-12 col-xs-12">
                         <div class="d-flex btn-group btn-group-lg" role="group">
                             <button type="button" class="btn btn-primary  qa-previous" >
                                 上一題
@@ -106,21 +106,22 @@
                             <button type="button" class="btn btn-primary qa-next">
                                 下一題
                             </button>
+							<button type="button"class="btn btn-outline-danger" >
+                                複習錯題
+                            </button>
                         </div>
 						 <div class="row">
-                        <div class="col-sm-6" id="qa-status"></div>
-						<div class="col-sm-4">
-						通過率：<div class="frac">
-						<span class="top">100</span>
+                        <div class="col-md-6" id="qa-status"></div>
+						<div class="col-md-6">
+						答對率：<div class="frac">
+							<span class="top">100</span>
 							<span class="symbol">/</span>
 							<span class="bottom">100</span>
-						</div>
+							</div>
 						
 						=<input value="100" class="percent" style='text-align:right;width:40px;' readonly disabled />%
 						</div>
-						<div class="col-sm-2">
-						<button type="button" class="btn btn-outline-danger">複習錯題</button>
-						</div>
+					
 						</div>
                     </div>
  
@@ -195,7 +196,7 @@
 		function callbackquiz (qadata, selcount) {
 						
 			qa = qadata;
-			
+			console.log(qa)
 			sel_cnt = selcount;
 			
 			currentIndex=0;
