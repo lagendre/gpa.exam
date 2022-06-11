@@ -106,6 +106,7 @@
 		<li><a class="nav-link" href="#" >財物及勞務採購作業</a></li>
 		<li><a class="nav-link" href="#" >錯誤採購態樣</a></li>
 		<li><a class="nav-link" href="#" >道德規範及違法處置</a></li>
+		<li><a class="nav-link btn-outline-danger" href="#" >複習錯題</a></li>
           </ul>
 
         </div>
@@ -134,13 +135,9 @@
                                 下一題
                             </button>
                         </div>
-						
-							<button type="button"class="btn btn-outline-danger float-end" >
-                                複習錯題
-                            </button>
-					
+
 						 <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
 						<div class="progress position-relative">
 							<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
 							<small class="justify-content-center d-flex position-absolute w-100">100%</small>
@@ -149,7 +146,7 @@
 						
 						</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 						答對率：<div class="frac">
 							<span class="top">100</span>
 							<span class="symbol">/</span>
@@ -185,7 +182,32 @@
 			$(".nav").find(".active").removeClass("active");
 			$(this).addClass("active");
 			
-			selectquiz( $(this).text() );
+			if (  $(this).text() ==='複習錯題'){
+				//sel_cnt=0; qa=[];
+				
+		
+				getAllquiz(function(qadata, selcount){
+					
+					if ( qadata.length!=0 ){
+						qa = qadata;sel_cnt = selcount;currentIndex=0;total = qa.length;
+						showQuiz();
+						$(".btn-outline-danger").text('清除錯題');
+						$("a#ori-pdf").attr('href', '' )
+							.text( '' );
+					}
+					else{
+						alert('沒有錯題');
+					}
+				});
+			
+			}
+			else if ( $(this).text() === '清除錯題' ){
+				$(".btn-outline-danger").text('複習錯題');
+				 clearquiz();
+			}
+			else{
+				selectquiz( $(this).text() );	
+			}
 		});
 	
 
@@ -214,41 +236,16 @@
             showQuiz();
           });
 		  
-		$('.btn-outline-danger').click(function() {
-			if ($(".btn-outline-danger").text()==='複習錯題'){
-				sel_cnt=0; qa=[];
-				
-				getAllquiz(callbackquiz);
-			
-			}
-			else{
-				clearquiz();
-			}
-			return true;
-          });
 	
         })
-		
-		function callbackquiz (qadata, selcount) {
-						
-			qa = qadata;
-			
-			sel_cnt = selcount;
-			
-			currentIndex=0;
-			
-			total = qa.length;
-			
-			if ( total!=0 ){
-				showQuiz();
-				$(".btn-outline-danger").text('清除錯題');
-			}
-			else{
-				alert('沒有錯題');
-			    }
-		}
+
 		
 		function selectquiz(txt){
+			
+			if (txt === '複習錯題' || txt === '清除錯題'){
+
+				return;
+			}
 			
 			$(".btn-outline-danger").text('複習錯題');
 			
@@ -265,7 +262,8 @@
 			let line_split =[];
 			let section='';
 				
-			$("a#ori-pdf").text( line[0].split('：')[1]+txt +'題庫' );	
+			$("a#ori-pdf").attr("href", txt +'題庫.pdf' )
+						.text( line[0].split('：')[1]+txt +'題庫' );	
 			
 			for (var i=0; i<line.length; i++){			
 				if (line[i].replace(/\n/g, '') ==='選擇題')
@@ -407,7 +405,7 @@
 			
 			let pass= frac_top/frac_bottom*100;
 
-			if ( pass<70)
+			if ( pass < 70 )
 				$('.percent').css({'color':'red','font-weight': 'bold'});				
 			else
 				$('.percent').css({'color':'green'});	

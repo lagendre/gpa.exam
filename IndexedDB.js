@@ -74,7 +74,7 @@ function loadIndexedDB (filename, callback, filesearch) {
 
 
 function getAllquiz(callback) {
-	
+	let selcount=0, qadata=[];
 	var openDB = openIndexedDB();
 
 	openDB.onsuccess = function() {
@@ -89,15 +89,15 @@ function getAllquiz(callback) {
 			 if (cursor) {
                			let quiz = cursor.value;	
 				
-				 qa.push(quiz);
+				 qadata.push(quiz);
 				
 				if (Object.keys(quiz.options).length==4)
-					sel_cnt++;
+					selcount++;
                 		// continue next record
                		 	cursor.continue();
             		}
 			else{
-				callback( qa,sel_cnt);
+				callback( qadata, selcount);
 			}
 		};
 
@@ -123,6 +123,10 @@ function clearquiz() {
 	 
 		clearData.onerror = function (evt) {
 		console.error("clearquiz:", evt.target.errorCode);
+		};
+		
+		db.tx.oncomplete = function() {
+		db.result.close();
 		};
   }
 }
