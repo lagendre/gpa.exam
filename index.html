@@ -14,6 +14,9 @@
 	<script src="IndexedDB.js"></script>
 
         <style>
+	.navbar-expand-lg{
+		background-color: #6f42c1; 
+	}	
 	.navbar-brand {
 		width: 260px;
 		overflow:hidden;
@@ -25,7 +28,7 @@
 			text-align:justify;
 	}
 	
-	.btn-primary {
+	.btn-primary, .bg-primary {
     		background-color: #6f42c1 !important;
 		border-color:gray !important;
 	}
@@ -34,8 +37,11 @@
    	 	
     		font-size: 16px !important;
 	}
+	.container{
+		padding-top: 10px;
+	}
 	
-
+	/*正確率顯示*/
 	.frac {
     display: inline-block;
     position: relative;
@@ -53,13 +59,31 @@
 	.frac span.symbol {
 		display: none;
 	} 
+	
+	.percent{
+		text-align:right;
+		width:40px;
+	}
+	
+	#qa-answer{
+		font-size: 20pt;
+	}
+	
+	#qa-stat{
+		font-size:.75rem;
+		text-align: center;
+	}
+	
+	.progress{
+		height: 20px;
+	}
 
         </style>
     </head>
     <body>
 		
     <!-- Fixed navbar -->
-	<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" style="background-color: #6f42c1;" >
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" >
       <div class="container-fluid">
          <a class="navbar-brand d-md-block d-lg-none" href="#">採購法題庫</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,10 +112,10 @@
     </nav>
 
 
-		  <div class="container" style="padding-top: 10px;">
+		  <div class="container">
             <div class="row">          
                 <h1 id="qa-quiz" class="col-md-12"></h1>
-                <div id="qa-answer" class="col-md-12" style="font-size: 20pt;"></div>
+                <div id="qa-answer" class="col-md-12"></div>
                 <h1 id="qa-result" class="col-md-12" ></h1>
                 <div id="detail" class="col-md-12">
                     <div class="col-md-10 col-sm-12 col-xs-12">
@@ -115,7 +139,14 @@
                             </button>
 					
 						 <div class="row">
-                        <div class="col-md-6" id="qa-status"></div>
+                        <div class="col-md-6">
+						<div class="progress">
+							<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<div id="qa-stat">
+						
+						</div>
+						</div>
 						<div class="col-md-6">
 						答對率：<div class="frac">
 							<span class="top">100</span>
@@ -123,7 +154,7 @@
 							<span class="bottom">100</span>
 							</div>
 						
-						=<input value="100" class="percent" style='text-align:right;width:40px;' readonly disabled />%
+						=<input value="100" class="percent"  readonly disabled />%
 						</div>
 					
 						</div>
@@ -383,7 +414,12 @@
 			
 			window.scrollTo(0, document.body.scrollHeight);
           });
-          $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
+          //$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
+		  let valeur =((currentIndex + 1)/total*100).toFixed(1);
+		  $('.progress-bar').css('width', valeur +'%')
+		  .attr('aria-valuenow', valeur)
+		  .text(  (currentIndex + 1) + ' / ' + total + ' (題)');
+		  $('div#qa-stat').html('選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+' (題)');
         }
 
         </script>
