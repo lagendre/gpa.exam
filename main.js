@@ -198,8 +198,8 @@
 		}
 		
         function showQuiz() {
-
-		//window.scrollTo(0, 0);
+		//scroll top at beginning
+		window.scrollTo(0, 0);
 		
           if (currentIndex > qa.length)
 			currentIndex=0;
