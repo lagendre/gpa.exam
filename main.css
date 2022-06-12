@@ -61,6 +61,7 @@
 		height: 20px;
 	}
 
-	input:checked + label {
+	/*input:checked + label
+	 #qa-res-sub {
 		background-color: #e9ecef;
-	}
+	}*/

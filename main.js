@@ -199,7 +199,7 @@
 		
         function showQuiz() {
 
-		window.scrollTo(0, 0);
+		//window.scrollTo(0, 0);
 		
           if (currentIndex > qa.length)
 			currentIndex=0;
@@ -215,16 +215,22 @@
 		
           $('input.qa-options').change(function() {	      
             var selected = $(this).val();
+			
             if(selected == qa[currentIndex].answer) {
+				$('.qa-options:checked + label').css({'background-color': '#e9ecef'});
+				
 				$('#qa-result').css({'color':'green'});
 				
-				$('#qa-result').html("你答對了！");
+				$('#qa-result').html("答對了");
 				
 				frac_top++;frac_bottom++;
             } else {
+				$('#'+ qa[currentIndex].answer+'+ label').css({'background-color': '#e9ecef'});
+				
 				$('#qa-result').css({'color':'red'});
 				
-              $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
+              $('#qa-result').html('答錯了！');
+			  //正確答案應該是 -> <div id="qa-res-sub">' + qa[currentIndex].options[qa[currentIndex].answer] + '</div>'+ qa[currentIndex].ref );
 			  frac_bottom++;
 			  saveIndexedDB(qa[currentIndex]);
             }
@@ -241,7 +247,7 @@
 		
 			$('.percent').val( (frac_top/frac_bottom*100).toFixed(1));
 			
-			window.scrollTo(0, document.body.scrollHeight);
+			//window.scrollTo(0, document.body.scrollHeight);
           });
           //$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
 		  let valeur =((currentIndex + 1)/total*100).toFixed(1);
