@@ -225,7 +225,7 @@
 				
 				frac_top++;frac_bottom++;
             } else {
-				$('#'+ qa[currentIndex].answer+'+ label').css({'background-color': '#e9ecef'});
+				$('#'+ qa[currentIndex].answer+'+ label').css({'background-color': 'yellow'});
 				
 				$('#qa-result').css({'color':'red'});
 				
