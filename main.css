@@ -61,9 +61,6 @@
 		height: 20px;
 	}
 
-	input:checked + label {
-		background-color: #e9ecef;
-	}
 	.github-fork-ribbon:before {
 		background-color: #6f42c1; 
 	}

@@ -19,11 +19,12 @@
 					
 					if ( qadata.length!=0 ){
 						qa = qadata;sel_cnt = selcount;total = qa.length;currentIndex= Math.floor(Math.random() * qa.length);
-						showQuiz();
 						$('.navbar-brand').text( '複習錯題' );
 						$(".btn-outline-danger").text('清除錯題');
 						$("a#ori-pdf").attr('href', '' )
 							.text( '' );
+						showQuiz();
+
 					}
 					else{
 						alert('沒有錯題');
@@ -80,13 +81,12 @@
 			$(".btn-outline-danger").text('複習錯題');
 			
 			$("a#ori-pdf").attr("href", txt +'題庫.pdf' );
-			
-			
+				
 			$('.navbar-brand').text( txt );
 			
-			qa = [];
-			
 			$.get(txt+'題庫.txt', function(data) {
+			
+			qa = [];
 			
 			let line = data.split('\r');
 			//let line_split =[];
@@ -218,14 +218,18 @@
             var selected = $(this).val();
             if(selected == qa[currentIndex].answer) {
 				$('#qa-result').css({'color':'green'});
-				
-				$('#qa-result').html("你答對了！");
+				//unicode thumb up symbol:&#128077;
+				$('#qa-result').html('答對&#128077;');
 				
 				frac_top++;frac_bottom++;
             } else {
-				$('#qa-result').css({'color':'red'});
 				
-              $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
+				$('#qa-result').css({'color':'red'});
+				$('#'+ qa[currentIndex].answer+'+ label').css({'background-color': 'yellow',
+																'color': 'red'});
+				//unicode cry face symbol:&#128077;												
+				$('#qa-result').html("答錯了&#128557;");
+             // $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
 			  frac_bottom++;
 			  saveIndexedDB(qa[currentIndex]);
             }
@@ -242,7 +246,7 @@
 		
 			$('.percent').val( (frac_top/frac_bottom*100).toFixed(1));
 			
-			window.scrollTo(0, document.body.scrollHeight);
+			//window.scrollTo(0, document.body.scrollHeight);
           });
           //$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
 		  let valeur =((currentIndex + 1)/total*100).toFixed(1);
