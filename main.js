@@ -18,7 +18,7 @@
 				getAllquiz(function(qadata, selcount){
 					
 					if ( qadata.length!=0 ){
-						qa = qadata;sel_cnt = selcount;total = qa.length;currentIndex= Math.floor(Math.random() * qa.length;
+						qa = qadata;sel_cnt = selcount;total = qa.length;currentIndex= Math.floor(Math.random() * qa.length);
 						showQuiz();
 						$('.navbar-brand').text( '複習錯題' );
 						$(".btn-outline-danger").text('清除錯題');
