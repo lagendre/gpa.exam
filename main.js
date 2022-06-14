@@ -227,7 +227,7 @@
 				$('#'+ qa[currentIndex].answer+'+ label').css({'background-color': 'yellow',
 																'color': 'red'});
 				//unicode cry face symbol:&#128077;												
-				$('#qa-result').html("答錯了&#128557;");
+				$('#qa-result').html("答錯了&#128557;"  + "<br>"+ qa[currentIndex].ref );
              // $('#qa-result').html("你答錯了！正確答案應該是 -> " + qa[currentIndex].options[qa[currentIndex].answer] + "<br>"+ qa[currentIndex].ref );
 			  frac_bottom++;
 			  saveIndexedDB(qa[currentIndex]);
