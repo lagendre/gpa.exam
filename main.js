@@ -216,11 +216,14 @@
           $('input.qa-options').change(function() {	      
             var selected = $(this).val();
             if(selected == qa[currentIndex].answer) {
-				$('#qa-result').css({'color':'green'});
+				
+		    		$('#qa-result').css({'color':'green'});
 				//unicode thumb up symbol:&#128077;
 				$('#qa-result').html('答對&#128077;' + '<br>'+ qa[currentIndex].ref);
 				
 				frac_top++;frac_bottom++;
+		    		
+		    		window.scrollTo(0, document.body.scrollHeight);
             } else {
 				
 				$('#qa-result').css({'color':'red'});
@@ -245,7 +248,6 @@
 		
 			$('.percent').val( (frac_top/frac_bottom*100).toFixed(1));
 			
-			//window.scrollTo(0, document.body.scrollHeight);
           });
           //$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題(選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+')');
 		  let valeur =((currentIndex + 1)/total*100).toFixed(1);
