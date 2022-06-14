@@ -188,12 +188,11 @@
 			
 			}//end of for loop
 
-			 total = qa.length;
+			total = qa.length;
 			
-			//random quiz
 			currentIndex =0;	
 				
-            showQuiz();
+            		showQuiz();
 			
 		}, 'text'); //end of get jquery
 		}
