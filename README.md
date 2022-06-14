@@ -9,5 +9,5 @@
 選單中可以複習錯題  
 *  題庫來源工程會
 https://web.pcc.gov.tw/psms/plrtqdm/questionPublic/indexReadQuestion  
-fork from https://github.com/kiang/government_procurement_act 
+* 源碼參考 fork from https://github.com/kiang/government_procurement_act 
 
