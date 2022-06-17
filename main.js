@@ -253,6 +253,6 @@
 		  let valeur =((currentIndex + 1)/total*100).toFixed(1);
 		  $('.progress-bar').css('width', valeur +'%')
 							.attr('aria-valuenow', valeur);
-		  $('.w-100').text(  (currentIndex + 1) + ' / ' + total + ' (題)');
-		  $('div#qa-stat').html('選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+' (題)');
+		  $('.w-100').text(  (currentIndex + 1) + ' / ' + '選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+' (題)');
+		  //$('div#qa-stat').html('選擇：'+sel_cnt+' 是非：'+(total-sel_cnt)+' (題)');
         }
