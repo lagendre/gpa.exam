@@ -52,14 +52,11 @@
 		font-size: 28px;
 	}
 	
-	/*#qa-stat{
-		font-size:.75rem;
-		text-align: center;
-	}*/
-	
 	.progress{
 		margin-top: 8px;
 		height: 20px;
+		background-color: gray !important;
+		color: white !important;
 	}
 
 	.github-fork-ribbon:before {
