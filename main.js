@@ -40,36 +40,55 @@
 				selectquiz( $(this).text() );	
 			}
 		});
-	
+		
+			  $('.qa-previous').click(qa_pvs);
+          $('.qa-next').click(qa_nxt);
+          $('.qa-jump').click(qa_jmp);	
+		  $('.qa-random').click(qa_rnd);
 
-          $('.qa-previous').click(function() {
+		$(document).keypress(function(e) {
+				if(e.which == '110') {
+					qa_nxt();
+				}
+				if (e.which=='112'){
+					qa_pvs();
+				}
+				if (e.which=='106'){
+					qa_jmp();
+				}
+				if (e.which=='114'){
+					qa_rnd();
+				}
+		});		  
+				
+        })
+	
+		function qa_pvs(){
             currentIndex -= 1;
             if(currentIndex < 0) {
               currentIndex = total - 1;
             }
             showQuiz();       
-          });
-          $('.qa-next').click(function() {
+        }
+
+		function qa_nxt(){
             currentIndex += 1;
             if(currentIndex >= total) {
               currentIndex = 0;
             }
             showQuiz();            
-          });
-          $('.qa-jump').click(function() {
+         }
+		 
+		 function qa_jmp(){
             currentIndex = window.prompt('輸入 1-' + total + ' 數字');
             currentIndex = parseInt(currentIndex) - 1;
             showQuiz();            
-          });
-		
-		$('.qa-random').click(function() {
+          }
+		  
+		 function qa_rnd(){
 	    currentIndex = Math.floor(Math.random() * qa.length);
             showQuiz();
-          });
-		  
-	
-        })
-
+          }
 		
 		function selectquiz(txt){
 			
