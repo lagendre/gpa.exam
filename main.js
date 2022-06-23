@@ -47,18 +47,19 @@
 		  $('.qa-random').click(qa_rnd);
 
 		$(document).keypress(function(e) {
-				if(e.which == '110') {
+				if(e.which == '110'||e.which=='78') {
 					qa_nxt();
 				}
-				if (e.which=='112'){
+				if (e.which=='112'||e.which=='80'){
 					qa_pvs();
 				}
-				if (e.which=='106'){
+				if (e.which=='106'||e.which=='74'){
 					qa_jmp();
 				}
-				if (e.which=='114'){
+				if (e.which=='114'||e.which=='82'){
 					qa_rnd();
 				}
+				//console.log(e);
 		});		  
 				
         })
@@ -80,9 +81,13 @@
          }
 		 
 		 function qa_jmp(){
-            currentIndex = window.prompt('輸入 1-' + total + ' 數字');
-            currentIndex = parseInt(currentIndex) - 1;
-            showQuiz();            
+            let userIndex = window.prompt('輸入 1-' + total + ' 數字');
+			if (userIndex != null) {
+				userIndex = parseInt(userIndex) ;
+				 if (isNaN(userIndex)) { return false; }
+				 currentIndex = userIndex-1;
+				showQuiz();
+			}            
           }
 		  
 		 function qa_rnd(){
