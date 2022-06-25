@@ -30,17 +30,51 @@ function getStoreIndexedDB (openDB) {
   return db;
 }
 
-function saveIndexedDB (qa) {
+function savequiz (qa) {
   var openDB = openIndexedDB();
 
   openDB.onsuccess = function() {
-    var db = getStoreIndexedDB(openDB);
-
-    db.store.put(qa);
+	  
+    getStoreIndexedDB(openDB).store.put(qa);
   }
-
+  
+   openDB.oncomplete = function() {
+       openDB.close();
+   };
+ 
   return true;
 }
+
+function delquiz(qa) {
+    
+
+  let openDB = openIndexedDB();
+
+  openDB.onsuccess = function(event) {
+	
+		let getKeyRequest = getStoreIndexedDB(openDB).index.getKey(qa.quiz);
+	
+		getKeyRequest.onsuccess = function() {
+			  getStoreIndexedDB(openDB).store.delete( getKeyRequest.result );
+		}
+		
+		
+   
+	
+  }
+  
+   // handle the error case
+    openDB.onerror = function (event) {
+        console.log(event.target.errorCode);
+    }
+  
+   openDB.oncomplete = function() {
+       openDB.close();
+   };
+ 
+
+}
+
 
 function findIndexedDB (filesearch, callback) {
   return loadIndexedDB(null, callback, filesearch);
@@ -63,8 +97,8 @@ function loadIndexedDB (filename, callback, filesearch) {
       callback(getData.result.data);
     };
 
-    db.tx.oncomplete = function() {
-      db.result.close();
+   openDB.oncomplete = function() {
+      openDB.close();
     };
   }
 
@@ -87,7 +121,7 @@ function getAllquiz(callback) {
 			let cursor = evt.target.result;
 			
 			 if (cursor) {
-               			let quiz = cursor.value;	
+               	let quiz = cursor.value;	
 				
 				 qadata.push(quiz);
 				
@@ -101,8 +135,8 @@ function getAllquiz(callback) {
 			}
 		};
 
-		db.tx.oncomplete = function() {
-		db.result.close();
+		getData.oncomplete = function() {
+		openDB.close();
 	};
   }
     return true;
@@ -125,8 +159,8 @@ function clearquiz() {
 		console.error("clearquiz:", evt.target.errorCode);
 		};
 		
-		db.tx.oncomplete = function() {
-		db.result.close();
+		clearData.oncomplete = function() {
+		openDB.close();
 		};
   }
 }
