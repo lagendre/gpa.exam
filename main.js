@@ -146,10 +146,10 @@
 							qa.push({
 							"quiz": line[i]+'.'+ line[i+2].slice(0, line[i+2].indexOf('(1')),//line_split[0],
 							"options": {
-							"1": line[i+2].slice(line[i+2].indexOf('(1'), line[i+2].indexOf('(2')),//'('+line_split[1],
-							"2": line[i+2].slice(line[i+2].indexOf('(2'), line[i+2].indexOf('(3')),//'('+line_split[2],
-							"3": line[i+2].slice(line[i+2].indexOf('(3'), line[i+2].indexOf('(4')),//'('+line_split[3],
-							"4": line[i+2].slice(line[i+2].indexOf('(4'), line[i+2].length)//'('+line_split[4]
+							"1": line[i+2].slice(line[i+2].indexOf('(1)'), line[i+2].indexOf('(2')),//'('+line_split[1],
+							"2": line[i+2].slice(line[i+2].indexOf('(2)'), line[i+2].indexOf('(3')),//'('+line_split[2],
+							"3": line[i+2].slice(line[i+2].indexOf('(3)'), line[i+2].indexOf('(4')),//'('+line_split[3],
+							"4": line[i+2].slice(line[i+2].indexOf('(4)'), line[i+2].length)//'('+line_split[4]
 							},
 							"answer":line[i+1],
 							"ref":""
@@ -164,10 +164,10 @@
 							qa.push({
 							"quiz": line[i]+'.'+ line[i+2].slice(0, line[i+2].indexOf('(1')),//line_split[0],
 							"options": {
-							"1": line[i+2].slice(line[i+2].indexOf('(1'), line[i+2].indexOf('(2')),//'('+line_split[1],
-							"2": line[i+2].slice(line[i+2].indexOf('(2'), line[i+2].indexOf('(3')),//'('+line_split[2],
-							"3": line[i+2].slice(line[i+2].indexOf('(3'), line[i+2].indexOf('(4')),//'('+line_split[3],
-							"4": line[i+2].slice(line[i+2].indexOf('(4'), line[i+2].length)//'('+line_split[4]
+							"1": line[i+2].slice(line[i+2].indexOf('(1)'), line[i+2].indexOf('(2')),//'('+line_split[1],
+							"2": line[i+2].slice(line[i+2].indexOf('(2)'), line[i+2].indexOf('(3')),//'('+line_split[2],
+							"3": line[i+2].slice(line[i+2].indexOf('(3)'), line[i+2].indexOf('(4')),//'('+line_split[3],
+							"4": line[i+2].slice(line[i+2].indexOf('(4)'), line[i+2].length)//'('+line_split[4]
 							},
 							"answer":line[i+1],
 							"ref": line[i+3]
